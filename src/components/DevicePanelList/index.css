@@ -1,0 +1,4 @@
+.device-panel-list {
+    display: flex;
+    justify-content: space-between;
+}

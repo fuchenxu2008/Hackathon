@@ -1,0 +1,32 @@
+.taskrunner {
+    display: flex;
+    flex: 1;
+}
+
+.no-task-hint {
+    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    flex: 1;
+}
+
+.task-data {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.task-data>div {
+    flex: 1;
+}
+
+.task-img {
+    width: 20%;
+    margin-left: 10px;
+    /* border: 1px solid rgb(209, 209, 209); */
+    box-shadow: 0 5px 30px rgba(143, 143, 143, 0.623);
+    border-radius: 5px;
+}
