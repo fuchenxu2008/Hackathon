@@ -1,60 +1,32 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Modal } from 'antd';
-import HistoryData from '../HistoryData';
-import SuperMode from '../SuperMode';
-import logo from '../../assets/logo.jpeg';
+import { Menu, Icon } from 'antd';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 export default class NavBar extends Component {
-  state = {
-    visible: false,
-    modalTitle: '',
-  }
+  handleClick = () => {
 
-  handleClick = (e) => {
-    if (e.key === 'history') {
-      this.setState({ visible: true, modalTitle: 'History Data' });
-    } else if (e.key === 'supermode') {
-      this.setState({ visible: true, modalTitle: 'Super Mode' });
-    }
-  }
-
-  handleOk = (e) => {
-    this.setState({ visible: false });
-  }
-
-  handleCancel = (e) => {
-    this.setState({ visible: false });
   }
 
   render() {
-    const { modalTitle, visible } = this.state;
     return (
       <Menu
         onClick={this.handleClick}
         mode="horizontal"
         className='navbar'
       >
-        <Menu.Item key="dashboard">
-          <img src={logo} className='logo' alt=''/> GEW ToolBox
+        <Menu.Item key="home">
+          <Link to='/' /><Icon type="api" />Hackathon
         </Menu.Item>
-        <Menu.Item key="history">
-          <Icon type="area-chart" />History
+        <Menu.Item key="robots-lives">
+          <Link to='/algorithms' /><Icon type="profile" />Robots Lives
         </Menu.Item>
-        <Menu.Item key="supermode">
-          <Icon type="api" />SuperMode
+        <Menu.Item key="currency-list">
+          <Link to='/coins' /><Icon type="pay-circle-o" />Currency List
         </Menu.Item>
-
-        <Modal
-          title={modalTitle}
-          width='80%'
-          visible={visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          { modalTitle === 'Super Mode' && <SuperMode /> }
-          { modalTitle === 'History Data' && <HistoryData /> }
-        </Modal>
+        <Menu.Item key="robots-detail">
+          <Link to='/dashboard' /><Icon type="dot-chart" />Robots Detail
+        </Menu.Item>
       </Menu>
     )
   }

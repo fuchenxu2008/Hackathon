@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import taskReducer from './taskReducer';
+import dataReducer from './dataReducer';
+import coinReducer from './coinReducer';
 
 export const createReducer = () => combineReducers({
-  task: taskReducer,
+  data: dataReducer,
+  coin: coinReducer
 })
 
 

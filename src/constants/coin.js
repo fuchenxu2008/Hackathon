@@ -1,0 +1,1 @@
+export const GET_COIN_LIST = 'app/GET_COIN_LIST';

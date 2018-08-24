@@ -1,14 +1,36 @@
-.page {
-    margin: 1rem 2rem 1rem 2rem;
-}
-
 #root {
+    width: 100%;
     min-height: 100%;
     display: flex;
+    /* background: url('http://www.bradysammons.com/codepen/darkui/noise.png') repeat; */
 }
 
 #root>div {
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.card-container>.ant-tabs-card>.ant-tabs-content {
+    margin-top: -16px;
+}
+
+.card-container>.ant-tabs-card>.ant-tabs-content>.ant-tabs-tabpane {
+    background-image: linear-gradient(120deg, #ffffff2a 0%, #e6e6e62d 100%);
+    padding: 16px;
+    border-radius: 0 0 15px 15px;
+}
+transparent
+.card-container>.ant-tabs-card>.ant-tabs-bar {
+    border-color: #fff;
+}
+
+.card-container>.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab {
+    border-color: transparent;
+    background: transparent;
+}
+
+.card-container>.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab-active {
+    border-color: transparent;
+    background-image: linear-gradient(120deg, #ffffff2a 0%, #e6e6e62d 100%);
 }

@@ -1,0 +1,11 @@
+.panel {
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.096);
+    padding: 1.5rem 0 1.5rem 0;
+    text-align: center;
+}
+
+.panel>h2 {
+    color: rgba(255, 255, 255, 0.753);
+    font-weight: bold;
+}

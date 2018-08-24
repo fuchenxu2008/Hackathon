@@ -1,0 +1,19 @@
+.dark-select>div {
+    background-color: transparent;
+    color: white;
+}
+
+.dark-date-picker,
+.dark-date-picker>span {
+    width: 400px !important;
+}
+
+.dark-date-picker>span {
+    background-color: transparent;
+    color: white;
+}
+
+.ant-select-arrow, .ant-calendar-picker-icon::after,
+.ant-calendar-range-picker-separator {
+    color: white;
+}

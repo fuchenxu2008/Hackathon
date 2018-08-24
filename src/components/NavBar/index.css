@@ -1,5 +1,9 @@
-.logo {
-    width: 35px;
+.navbar {
+    background: transparent;
+    border: none;
+    color: rgb(220, 220, 220);
+    padding: 1rem 1rem 0 1rem;
+    font-size: 17px;
 }
 
 .navbar li:nth-child(2) {
@@ -7,5 +11,9 @@
 }
 
 .navbar li:nth-child(3) {
+    float: right;
+}
+
+.navbar li:nth-child(4) {
     float: right;
 }

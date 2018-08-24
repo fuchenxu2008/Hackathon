@@ -1,0 +1,6 @@
+.tabpane {
+    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: break-word;
+    height: 200px;
+}

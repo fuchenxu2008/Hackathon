@@ -1,24 +1,50 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import EchartDisplay from '../EchartDisplay';
-import DevicePanelList from '../DevicePanelList';
-import TaskRunner from '../TaskRunner';
+import { connect } from 'react-redux';
+import QueryForm from '../QueryForm';
+import ChartDisplay from '../ChartDisplay';
+import StatisticsMonitor from '../StatisticsMonitor';
+import LogMonitor from '../LogMonitor';
+import { getChartData } from '../../actions/data';
 import './index.css';
 
-export default class DashBoard extends Component {
+export class DashBoard extends Component {
+  componentDidMount() {
+    console.log('mount');
+  }
+
+  handleAdvancedQuery = (query) => {
+    this.props.getChartData(query);
+  }
+
   render() {
     return (
-      <div className='dashboard page'>
+      <div className='dashboard'>
         <h2 className='section-title'>
-          <Icon type="rocket" /> Control Panel
+          {
+            // <Icon type="area-chart" /> Echarts
+          }
         </h2>
-        <DevicePanelList />
-        <EchartDisplay />
+        <QueryForm onQuery={this.handleAdvancedQuery} />
+        <br />
+        <ChartDisplay />
+        
+        <br /><br />
+        
         <h2 className='section-title'>
-          <Icon type="hourglass" /> Current Task
+          <Icon type="code" /> Monitor
         </h2>
-        <TaskRunner />
+        <div className='monitor-view'>
+          <StatisticsMonitor />
+          <LogMonitor />
+        </div>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  getChartData: (query) => dispatch(getChartData(query))
+})
+
+export default connect(null, mapDispatchToProps)(DashBoard);
