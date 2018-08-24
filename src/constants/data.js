@@ -2,3 +2,4 @@ export const GET_CANDLE_DATA = 'GET_CANDLE_DATA';
 export const GET_AREA_DATA = 'GET_AREA_DATA';
 export const GET_PIE_DATA = 'GET_PIE_DATA';
 export const GET_CANDLE_OPTION = 'GET_CANDLE_OPTION';
+export const GETTING_CHART_DATA = 'GETTING_CHART_DATA';

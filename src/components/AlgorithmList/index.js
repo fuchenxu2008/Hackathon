@@ -53,7 +53,7 @@ export default class AlgorithmList extends Component {
 
         return (
             <div className='algorithm-list'>
-                <DataTable columns={columns} data={data} />
+                <DataTable title='Algorithm List' columns={columns} data={data} />
             </div>
         )
     }

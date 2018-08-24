@@ -17,3 +17,8 @@
 .ant-calendar-range-picker-separator {
     color: white;
 }
+
+.ant-calendar-picker-clear, .ant-calendar-picker-clear:hover {
+    color: rgb(255, 255, 255);
+    background: #282c34;
+}

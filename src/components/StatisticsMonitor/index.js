@@ -45,11 +45,16 @@ export default class StatisticsMonitor extends Component {
         }];
 
         return (
-            <div className="normal-panel">
-                {
-                    // <DataTable columns={performanceColumns} />
-                    // <DataTable  columns={updownColumns} />
-                }
+            <div
+                // className="normal-panel"
+            >
+                
+                    <DataTable columns={performanceColumns} fontSizeBase={0.9} paddingRatio={0.5} />
+                    
+                    <br />
+
+                    <DataTable columns={updownColumns} fontSizeBase={0.9} paddingRatio={0.5} />
+                    
             </div> 
         )
     }

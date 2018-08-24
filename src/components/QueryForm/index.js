@@ -36,11 +36,34 @@ export class QueryForm extends Component {
     render() {
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
         // Only show error after a field is touched.
+        const symbolError = isFieldTouched('symbol') && getFieldError('symbol');
         const tfError = isFieldTouched('tf') && getFieldError('tf');
         const timeRangeError = isFieldTouched('timeRange') && getFieldError('timeRange');
         
         return (
             <Form layout="inline" onSubmit={this.handleSubmit}>
+                <FormItem
+                    validateStatus={symbolError ? 'error' : ''}
+                    help={symbolError || ''}
+                >
+                    {getFieldDecorator('symbol', {
+                        initialValue: 'ETH',
+                        rules: [{ required: true, message: 'Please input symbol!' }],
+                    })(
+                        <Select className='dark-select'>
+                            <Option value="ETH">ETH</Option>
+                            <Option value="XRP">XRP</Option>
+                            <Option value="BCH">BCH</Option>
+                            <Option value="EOS">EOS</Option>
+                            <Option value="XLM">XLM</Option>
+                            <Option value="LTC">LTC</Option>
+                            <Option value="XEM">XEM</Option>
+                            <Option value="ETC">ETC</Option>
+                            <Option value="XMR">XMR</Option>
+                            <Option value="DASH">DASH</Option>
+                        </Select>
+                    )}
+                </FormItem>
                 <FormItem
                     validateStatus={tfError ? 'error' : ''}
                     help={tfError || ''}

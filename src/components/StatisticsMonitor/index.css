@@ -1,6 +1,7 @@
 .normal-panel {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.096);
+    /* background-color: rgba(64, 77, 99, 0.534); */
     padding: 1.5rem 1rem 1.5rem 1rem;
     text-align: center;
 }

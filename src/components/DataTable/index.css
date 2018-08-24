@@ -1,0 +1,37 @@
+.dark-datatable {
+    background-color: rgba(255, 255, 255, 0.096);
+    /* background-color: rgba(64, 77, 99, 0.534); */
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dark-table-heading {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dark-table {
+    width: 100%;
+}
+
+.dark-table-th {
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: rgb(200, 200, 200);
+    font-size: 1.1rem;
+}
+
+.dark-table-stripe-row {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-table-td {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 2rem 1rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}

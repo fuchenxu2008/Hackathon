@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Spin } from 'antd';
 import { connect } from 'react-redux';
 import Echarts from '../Echarts';
 import { getOption } from '../Echarts/options'; // temp
@@ -8,26 +9,24 @@ import './index.css';
 
 export class ChartDisplay extends Component {
   render() {
+    const { status, candleOption } = this.props;
+
     return (
-       <div className="card-container">
+       <Spin className="card-container" spinning={status === 'fetching'}>
             <div className='panel'>
-              <h2>CandleStick</h2>
-              <Echarts option={this.props.candleOption} height='450px' />
+              <h2>{status}</h2>
+              <Echarts option={candleOption} height='450px' />
             </div>
             {
-              // <TabPane tab="Profit Chart" key="2">
-              //   <Echarts  height='450px' />
-              // </TabPane>
-              // <TabPane tab="Pie" key="3">
               //   <Echarts option={getOption('pie')} height='450px' />
-              // </TabPane>
             }
-        </div> 
+        </Spin> 
     )
   }
 }
 
 const mapStateToProps = ({ data }) => ({
+  status: data.status,
   candleData: data.candleData,
   candleOption: data.candleOption
 });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import DataTable from '../DataTable';
 import { getCoinList } from '../../actions/coin';
 
 import './index.css';
@@ -10,11 +11,35 @@ export class CurrencyList extends Component {
     }
 
     render() {
+        const columns = [{
+            title: 'Icon',
+            dataIndex: 'icon',
+        },{
+            title: 'Name',
+            dataIndex: 'name',
+        }, {
+            title: 'Symbol',
+            dataIndex: 'symbol',
+        }, {
+            title: 'Price',
+            dataIndex: 'price',
+        }, {
+            title: 'Market Cap',
+            dataIndex: 'market_cap',
+        }];
+
+        const data = this.props.coinList.map(coin => ({
+            key: coin.id,
+            icon: <img style={{ width: '50px' }} src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} />,
+            name: coin.name,
+            symbol: coin.symbol,
+            price: `$${coin.quote.USD.price}`,
+            market_cap: `$${coin.quote.USD.market_cap}`,
+        }));
+
         return (
         <div className='currency-list'>
-            <table>
-                
-            </table>
+            <DataTable title='Currency List' columns={columns} data={data} />
         </div>
         )
     }
