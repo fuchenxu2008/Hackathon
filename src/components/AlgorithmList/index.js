@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'antd';
+import moment from 'moment';
 // import { Link } from 'react-router-dom';
 import DataTable from '../DataTable';
 import Echart from '../Echarts';
 import { getOption } from '../Echarts/options';
 
 import './index.css';
+
+function randomDate(start, end, startHour, endHour) {
+    var date = new Date(+start + Math.random() * (end - start));
+    var hour = startHour + Math.random() * (endHour - startHour) | 0;
+    date.setHours(hour);
+    return date;
+}
 
 export default class AlgorithmList extends Component {
     state = { visible: false, modalTitle: '' }
@@ -75,15 +83,16 @@ export default class AlgorithmList extends Component {
             0.14285714285714288
         ]
 
-        const getData = () => ['ucrp', 'best', 'ons', 'ubah'].map((algo, i) => ({
+        const getData = () => ['ucrp', 'best', 'ons', 'ubah', 'olmar', 'bnn', 'cornk', 'cwmr', 
+    'm0', 'sp'].map((algo, i) => ({
             key: i,
             pie: <Echart option={getOption('smallpie', {
-                pw: pw.map(p => p + (1 - Math.random() * 2) * Math.random() * 0.1),
+                pw: pw.map(p => p + (1 - Math.random() * 2) * Math.random() * 0.2),
                 symbols,
             })} height='50px' width='50px' />,
             algorithm: algo,
-            profit: Math.random() * 60,
-            created: '2018-06-30 15:06:04',
+            profit: (Math.random() * 4 - 2).toFixed(4),
+            created: moment(randomDate(new Date(2010, 6, 10), new Date(), 0, 23)).format('YYYY-MM-DD HH:mm:ss'),
             action: (
                 <div>
                     <Button type='default' ghost onClick={() => this.goToAlgorithm(algo)}>View</Button>&nbsp;&nbsp;
