@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'antd';
 import moment from 'moment';
-// import { Link } from 'react-router-dom';
+import Web3 from 'web3';
+// var Web3 = require('web3') // The web3.js library
 import DataTable from '../DataTable';
 import Echart from '../Echarts';
 import { getOption } from '../Echarts/options';
 
 import './index.css';
+
+const web3Provider = window.web3 ? window.web3.currentProvider : null;
+const myWeb3 = new Web3(web3Provider);
+console.log('myWeb3: ', myWeb3);
 
 function randomDate(start, end, startHour, endHour) {
     var date = new Date(+start + Math.random() * (end - start));
@@ -19,10 +24,12 @@ export default class AlgorithmList extends Component {
     state = { visible: false, modalTitle: '' }
 
     showModal = (title) => {
-        this.setState({
-            visible: true,
-            modalTitle: title,
-        });
+
+        this.interact();
+        // this.setState({
+        //     visible: true,
+        //     modalTitle: title,
+        // });
     }
 
     handleOk = (e) => {
@@ -39,6 +46,17 @@ export default class AlgorithmList extends Component {
             visible: false,
             modalTitle: ''
         });
+    }
+
+    interact = () => {
+        console.log(myWeb3);
+        myWeb3.eth.getAccounts(function (err, accounts) {
+            console.log(accounts);
+            myWeb3.eth.getBalance(accounts[0], function (err, balance) {
+                console.log(balance);
+                // new Web3.eth.Contract(abi, contractAddress);
+            })
+        })
     }
 
     goToAlgorithm = (algo) => {
