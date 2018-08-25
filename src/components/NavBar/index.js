@@ -17,7 +17,7 @@ export default class NavBar extends Component {
         className='navbar'
       >
         <Menu.Item key="home">
-          <Link to='/' /><img src={logo} style={{ height: '30px', transform: 'translateY(-8%)', marginRight: '10px' }} alt='' /> Hackathon
+          <Link to='/' /><img src={logo} style={{ height: '30px', transform: 'translateY(-8%)', marginRight: '10px' }} alt='' />
         </Menu.Item>
         <Menu.Item key="robots-lives">
           <Link to='/algorithms' /><Icon type="profile" />Robots Lives

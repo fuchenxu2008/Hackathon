@@ -1,7 +1,8 @@
 {
-  "name": "roadlamp",
+  "name": "hackathon",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://fuchenxu2008.github.io/Hackathon",
   "dependencies": {
     "antd": "^3.8.2",
     "axios": "^0.18.0",
@@ -22,10 +23,13 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
+    "gh-pages": "^1.2.0",
     "react-app-rewired": "^1.5.2"
   }
 }
