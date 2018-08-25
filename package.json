@@ -2,7 +2,6 @@
   "name": "hackathon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://fuchenxu2008.github.io/Hackathon",
   "dependencies": {
     "antd": "^3.8.2",
     "axios": "^0.18.0",
