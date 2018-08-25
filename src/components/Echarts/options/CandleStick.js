@@ -20,7 +20,7 @@ export function calculateMA(dayCount, data) {
 }
 
 const getOption = (data) => {
-    const { time, ochl, vol } = data;
+    const { time, ochl, vol, pv } = data;
 
     return {
         backgroundColor: 'transparent',
@@ -31,7 +31,7 @@ const getOption = (data) => {
         legend: {
             bottom: 0,
             left: 'center',
-            data: ['Dow-Jones index', 'MA5', 'MA10', 'MA20', 'MA30', 'Profit'],
+            data: ['Candlestick', 'MA5', 'MA10', 'MA20', 'MA30', 'Profit'],
             textStyle: {
                 color: '#fff',
             },
@@ -142,16 +142,16 @@ const getOption = (data) => {
             {
                 type: 'inside',
                 xAxisIndex: [0, 1],
-                start: 0,
-                end: 100,
+                start: 25,
+                end: 75,
             },
             {
                 show: true,
                 xAxisIndex: [0, 1],
                 type: 'slider',
                 top: '85%',
-                start: 0,
-                end: 100,
+                start: 25,
+                end: 75,
                 backgroundColor: 'transparent',
                 dataBackground: {
                     areaStyle: {
@@ -170,7 +170,7 @@ const getOption = (data) => {
         ],
         series: [
             {
-                name: 'Dow-Jones index',
+                name: 'Candlestick',
                 type: 'candlestick',
                 data: ochl,
                 itemStyle: {
@@ -209,7 +209,10 @@ const getOption = (data) => {
                 smooth: true,
                 showSymbol: false,
                 lineStyle: {
-                    normal: {opacity: 0.5}
+                    normal: {
+                        color: 'pink',
+                        opacity: 0.5
+                    }
                 }
             },
             {
@@ -257,7 +260,7 @@ const getOption = (data) => {
                         }])
                     }
                 },
-                data: ochl.map(ele => Math.random() * 0.001 + 0.042),
+                data: pv.map((ele, i) => ele * ochl[i][0]),
             },
             {
                 name: 'Volume',

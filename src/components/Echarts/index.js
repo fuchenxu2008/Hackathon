@@ -23,7 +23,7 @@ export default class Echarts extends Component {
   }
 
   render() {
-    const { option, height } = this.props;
+    const { option, height, width } = this.props;
     if (!option) return null;
 
     return (
@@ -33,7 +33,7 @@ export default class Echarts extends Component {
         lazyUpdate={true}
         onChartReady={this.onChartReady}
         className='react-echart'
-        style={{ height }}
+        style={{ height, width }}
       />
     )
   }

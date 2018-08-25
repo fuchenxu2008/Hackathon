@@ -30,7 +30,7 @@ export class CurrencyList extends Component {
 
         const data = this.props.coinList.map(coin => ({
             key: coin.id,
-            icon: <img style={{ width: '50px' }} src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} />,
+            icon: <img style={{ width: '50px' }} src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} alt='' />,
             name: coin.name,
             symbol: coin.symbol,
             price: `$${coin.quote.USD.price}`,
@@ -39,7 +39,7 @@ export class CurrencyList extends Component {
 
         return (
         <div className='currency-list'>
-            <DataTable title='Currency List' columns={columns} data={data} />
+            <DataTable icon='pay-circle-o' title='Currency List' columns={columns} data={data} />
         </div>
         )
     }

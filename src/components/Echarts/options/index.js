@@ -1,15 +1,15 @@
-import getAreaChartOption from './AreaChart';
 import getCandleStickOption from './CandleStick';
 import getPieChartOption from './PieChart';
+import getSmallPie from './smallPie';
 
 export const getOption = (type, data) => {
     switch (type) {
         case 'price':
             return getCandleStickOption(data);
-        case 'profit':
-            return getAreaChartOption();
         case 'pie':
-            return getPieChartOption();
+            return getPieChartOption(data);
+        case 'smallpie':
+            return getSmallPie(data);
         default:
             break;
     }

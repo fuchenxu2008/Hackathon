@@ -9,6 +9,7 @@ export const getCandleData = (query) => {
         query.end && params.push(`end=${query.end}`);
         query.tf && params.push(`tf=${query.tf}`);
         query.symbol && params.push(`symbol=${query.symbol}`);
+        query.algo && params.push(`algo=${query.algo}`);
     }
     return axios.get(`${ROOT_URL}/coin?${params.join('&')}`);
 }

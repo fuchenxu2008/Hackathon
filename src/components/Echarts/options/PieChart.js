@@ -1,25 +1,9 @@
-const getOption = () => {
-    const data = [{
-            value: 335,
-            name: '直接访问'
-        },
-        {
-            value: 310,
-            name: '邮件营销'
-        },
-        {
-            value: 274,
-            name: '联盟广告'
-        },
-        {
-            value: 235,
-            name: '视频广告'
-        },
-        {
-            value: 400,
-            name: '搜索引擎'
-        }
-    ];
+const getOption = (data) => {
+    const { pw, symbols } = data;
+    const renderData = pw.map((val, i) => ({
+        value: val,
+        name: symbols[i],
+    }))
 
     return {
         // backgroundColor: '#2c343c',
@@ -28,45 +12,40 @@ const getOption = () => {
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c} ({d}%)",
-            position: ['80%', '80%']
+            position: ['50%', '80%']
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: 10,
-            top: 20,
-            bottom: 20,
-            data: data.map(item => item.name),
-        },
-        visualMap: {
-            show: false,
-            min: 80,
-            max: 600,
-            inRange: {
-                colorLightness: [0, 1]
-            }
+            orient: 'horizontal',
+            left: 'top',
+            // top: 20,
+            bottom: 0,
+            textStyle: {
+                color: 'white'
+            },
+            data: renderData.map(item => item.name),
         },
         series: [{
-            name: '访问来源',
+            name: 'Portfolio Weight',
             type: 'pie',
-            radius: '80%',
-            center: ['50%', '50%'],
+            radius: '50%',
+            center: ['50%', '45%'],
             hoverAnimation: false,
-            data: data.sort(function (a, b) {
+            data: renderData.sort(function (a, b) {
                 return a.value - b.value;
             }),
-            roseType: 'radius',
+            // roseType: 'radius',
             label: {
                 normal: {
                     textStyle: {
-                        color: 'rgba(0, 0, 0, 0.3)'
+                        color: 'white'
                     }
                 }
             },
             labelLine: {
                 normal: {
                     lineStyle: {
-                        color: 'rgba(0, 0, 0, 0.3)'
+                        color: 'white'
                     },
                     smooth: 0.2,
                     length: 10,
@@ -74,12 +53,6 @@ const getOption = () => {
                 }
             },
             itemStyle: {},
-
-            // animationType: 'scale',
-            // animationEasing: 'elasticOut',
-            // animationDelay: function (idx) {
-            //     return Math.random() * 200;
-            // }
         }]
     }
 }

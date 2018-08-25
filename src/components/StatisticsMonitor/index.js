@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Tabs } from 'antd';
+// import { Icon } from 'antd';
 import DataTable from '../DataTable';
 
 // const TabPane = Tabs.TabPane;
@@ -44,16 +44,41 @@ export default class StatisticsMonitor extends Component {
             dataIndex: 'postive_week',
         }];
 
+        const { indicatorData } = this.props;
+        const performanceData = indicatorData ? [{
+            key: 1,
+            average: indicatorData.average,
+            portfolio_value: indicatorData.portfolio_value,
+            max_drawdown: indicatorData.max_drawdown,
+            sharpe_ratio: indicatorData.sharpe_ratio,
+            sortino_ratio: indicatorData.sortino_ratio,
+        }] : null;
+
+        const updownData = indicatorData ? [{
+            key: 1,
+            negative_day: indicatorData.negative_day,
+            negative_periods: indicatorData.negative_periods,
+            negative_week: indicatorData.negative_week,
+            postive_day: indicatorData.postive_day,
+            postive_periods: indicatorData.postive_periods,
+            postive_week: indicatorData.postive_week,
+        }] : null;
+
         return (
             <div
                 // className="normal-panel"
             >
-                
-                    <DataTable columns={performanceColumns} fontSizeBase={0.9} paddingRatio={0.5} />
-                    
+                    {
+                        // <h2 className='section-title'>
+                        //     <Icon type="code" /> Monitor
+                        // </h2>
+                    }
+
+                    <DataTable icon='dashboard' title='Performance' columns={performanceColumns} data={performanceData} fontSizeBase={0.9} paddingRatio={0.5} />
+
                     <br />
 
-                    <DataTable columns={updownColumns} fontSizeBase={0.9} paddingRatio={0.5} />
+                    <DataTable icon='fork' title='Up/Down' columns={updownColumns} data={updownData} fontSizeBase={0.9} paddingRatio={0.5} />
                     
             </div> 
         )

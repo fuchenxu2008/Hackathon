@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
+import { Icon } from 'antd';
 
 import './index.css';
 
 export default class DataTable extends Component {
   render() {
-    const { columns, data, title, fontSizeBase, paddingRatio } = this.props;
+    const { columns, data, title, fontSizeBase, paddingRatio, icon } = this.props;
 
     return (
       <div className='dark-datatable'>
-        {title && <div className='dark-table-heading'>{title}</div> }
+        {
+          title && 
+          <div
+            className='dark-table-heading'
+            style={{
+              fontSize: `${fontSizeBase}rem`,
+              padding: `${paddingRatio * 1.5}rem ${paddingRatio * 2}rem ${paddingRatio * 1.5}rem ${paddingRatio * 2}rem`
+            }}
+          >
+            {<Icon type={icon} />}&nbsp;&nbsp;&nbsp;{title.toUpperCase()}
+          </div> 
+        }
         <table className='dark-table'>
           <thead>
             <tr>

@@ -1,4 +1,5 @@
 const axios = require('axios')
+const web3 = require('web3');
 
 const getData = () => {
     axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=20', {
@@ -9,4 +10,5 @@ const getData = () => {
     .then(res => console.log(res.data));
 }
 
-getData();
+// getData();
+console.log(web3);

@@ -8,19 +8,3 @@
 .section-title {
     color: rgb(230, 230, 230);
 }
-
-.monitor-view {
-    display: flex;
-    justify-content: space-between;
-}
-
-.monitor-view>div:nth-child(1) {
-    flex: 1;
-}
-
-.monitor-view>div:nth-child(2) {
-    margin-left: 30px;
-    width: 40%;
-    /* max-width: 40%; */
-    overflow: hidden;
-}

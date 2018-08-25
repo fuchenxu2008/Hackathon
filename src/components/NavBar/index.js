@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import './index.css';
+import logo from '../../assets/mercurius-logo.png';
 
 export default class NavBar extends Component {
   handleClick = () => {
@@ -16,7 +17,7 @@ export default class NavBar extends Component {
         className='navbar'
       >
         <Menu.Item key="home">
-          <Link to='/' /><Icon type="api" />Hackathon
+          <Link to='/' /><img src={logo} style={{ height: '30px', transform: 'translateY(-8%)', marginRight: '10px' }} alt='' /> Hackathon
         </Menu.Item>
         <Menu.Item key="robots-lives">
           <Link to='/algorithms' /><Icon type="profile" />Robots Lives
