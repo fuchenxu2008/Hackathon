@@ -21,15 +21,15 @@ function randomDate(start, end, startHour, endHour) {
 }
 
 export default class AlgorithmList extends Component {
-    state = { visible: false, modalTitle: '' }
+    state = { visible: false, modalTitle: '', body: '' }
 
     showModal = (title) => {
 
         this.interact();
-        // this.setState({
-        //     visible: true,
-        //     modalTitle: title,
-        // });
+        this.setState({
+            visible: true,
+            modalTitle: title,
+        });
     }
 
     handleOk = (e) => {
@@ -49,12 +49,12 @@ export default class AlgorithmList extends Component {
     }
 
     interact = () => {
-        console.log(myWeb3);
+        let that = this;
         myWeb3.eth.getAccounts(function (err, accounts) {
             console.log(accounts);
             myWeb3.eth.getBalance(accounts[0], function (err, balance) {
                 console.log(balance);
-                // new Web3.eth.Contract(abi, contractAddress);
+                that.setState({ body: <h3>Your balance is <b>{balance.toString()}</b></h3> })
             })
         })
     }
@@ -129,9 +129,7 @@ export default class AlgorithmList extends Component {
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                    <div>{this.state.body}</div>
                 </Modal>
             </div>
         )
